@@ -7,6 +7,11 @@ import ch.bujaki.loadbalancer.scheduler.SchedulerStrategy;
 
 public class LoadBalancerFactory {
 	
+	private LoadBalancerFactory() {
+		// Hides the implicit public constructor.
+		// -> Nothing to do.
+	}
+	
 	public static class LoadBalancerBuilder<T> {
 		
 		private int healthCheckInterval = 2;
