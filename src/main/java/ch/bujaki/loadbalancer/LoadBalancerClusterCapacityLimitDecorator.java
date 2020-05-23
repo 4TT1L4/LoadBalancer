@@ -65,13 +65,13 @@ public class LoadBalancerClusterCapacityLimitDecorator <T> implements LoadBalanc
 	}
 
 	private synchronized void decrementConcurrentCallCount() {
-		logger.debug("decrementConcurrentCallCount - concurrentCalls was " + concurrentCalls);
+		logger.debug("decrementConcurrentCallCount - concurrentCalls was {0}", concurrentCalls);
 		concurrentCalls--;
 	}
 
 	private synchronized void incrementConcurrentCallCount() throws TooManyConcurrentCallsException {
 		int maxConcurrentCallCount = loadBalancer.getActiveProviders().size() * maxNumberOfConcurrentCallsPerActiveProvider;
-		logger.debug("incrementConcurrentCallCount - concurrentCalls was: " + concurrentCalls + " maxConcurrentCallCount: " + maxConcurrentCallCount );
+		logger.debug("incrementConcurrentCallCount - concurrentCalls was: {0} maxConcurrentCallCount: {1}" +concurrentCalls,  maxConcurrentCallCount );
 		if (concurrentCalls + 1 > maxConcurrentCallCount) {
 			throw new TooManyConcurrentCallsException("There are already " + concurrentCalls + " concurrent calls and only " + maxConcurrentCallCount + " are allowed.");
 		}

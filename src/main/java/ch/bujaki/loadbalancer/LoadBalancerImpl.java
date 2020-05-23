@@ -39,8 +39,7 @@ public class LoadBalancerImpl <T> implements LoadBalancer<T> {
 			throw new NoRegisteredProviderIsActiveException();
 		}
 		
-		Provider<T> next = this.strategy.getNextProvider(activeProviders);
-		return next;
+		return this.strategy.getNextProvider(activeProviders);
 	}
 	 
 	public synchronized void registerProvider(Provider<T> provider) throws MaxNumberOfAcceptedProvidersHasBeenReachedException {

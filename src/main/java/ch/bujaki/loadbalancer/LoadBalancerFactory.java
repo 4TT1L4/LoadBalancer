@@ -44,9 +44,7 @@ public class LoadBalancerFactory {
 		public LoadBalancer<T> build() {
 			LoadBalancer<T> balancer = new LoadBalancerImpl<>(this.strategy, maxAcceptedProviders);
 			LoadBalancer<T> decoratedWithCapacityLimit = new LoadBalancerClusterCapacityLimitDecorator<T>(balancer, maxNumberOfConcurrentCallsPerActiveProvider);
-			LoadBalancer<T> decoratedWithCapacityLimitAndHealthCheck = new LoadBalancerHealthCheckDecorator<T>(decoratedWithCapacityLimit, healthCheckInterval, healthCheckIntervalTimeUnit);
-			
-			return decoratedWithCapacityLimitAndHealthCheck;
+			return new LoadBalancerHealthCheckDecorator<T>(decoratedWithCapacityLimit, healthCheckInterval, healthCheckIntervalTimeUnit);
 		}
 	}
 
