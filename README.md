@@ -20,7 +20,11 @@ loadBalancer.registerProvider(first);
 loadBalancer.registerProvider(second);
 loadBalancer.registerProvider(third);
 
-String response = loadBalancer.get();
+String response1 = loadBalancer.get();  // Response from first
+String response2 = loadBalancer.get();  // Response from second
+String response3 = loadBalancer.get();  // Response from third
+String response4 = loadBalancer.get();  // Response from first
+                                        // ...
 ```
 
 ## Health Checks
