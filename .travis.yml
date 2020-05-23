@@ -1,0 +1,10 @@
+language: java
+jdk: oraclejdk12
+install:
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+addons:
+  sonarcloud:
+    organization: "bujakiattila"
+    token:
+      secure: "tdayV5wfCC3lq2y7vKeNmd4lGKqN+ETjJSQW2sXG6evcKFVvuyRs0V4UNImR9mfeiMHNQV0M+vigjFxwn5KbrQf7NNzsVmIlL9Xd+iZGz8Pr4+z/POjyji6cBaxP+AHfszLxPp9SDqqHxrptXvVioKP4XjTTuP0FFypniqeDjhbzpTky9FqEVzNdYlhTcIXvLTW0x1ie+1itBDsgqnILaph3i6B07KA2GGqYPnr+wWI3JTcCLvAgB/+/Ikj1lUFG0Kbu0jFI7zXplQ6DLzXK8qFMaZwRhcE4389/EkPbC3Jv3BJdi1e9xKeNqQqTNlJbxRtlwb4tXLsqZGFSRs6fvGDRZVBYE3qrSm6CXZZMX1HrAhKZTBwwCw/xO13SW+Kn6v7nn/kC1Abut8azkW4IVkSAzaR26Bk0/KfHqXTBpcxKPevtrjtq+uYKc8CPnJvlvkZLsfrbR0aEPyGbFnhbft+9lpvzqRw+lx7HEoU71gum9yRqSpRI4YWMf/qSZM1prvNIoMdqervuv+AoSDkIHXxZELIjHCKvjSNU6BFYHAi1Ais1QR1z1kPqIGuoOHCS+1f2BY5Z7TWsXoPtmAmMybyLMr+qEchuG1AwHXoErEMEWXedfkfKjaIV/ovxVyhSUqT+qWAlMVDaoaf7RTy7YbYAsRfYvmwRWXXd38UY44E="
+
