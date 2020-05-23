@@ -24,6 +24,7 @@ String response1 = loadBalancer.get();  // Response from first
 String response2 = loadBalancer.get();  // Response from second
 String response3 = loadBalancer.get();  // Response from third
 String response4 = loadBalancer.get();  // Response from first
+String response5 = loadBalancer.get();  // Response from second
                                         // ...
 ```
 
