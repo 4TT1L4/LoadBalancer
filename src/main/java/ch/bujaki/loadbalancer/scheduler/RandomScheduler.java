@@ -15,8 +15,7 @@ public class RandomScheduler<T> implements SchedulerStrategy<T> {
 	
 	@Override
 	public Provider<T> getNextProvider(List<Provider<T>> providers) {
-		Provider<T> randomProvider = getRandomElement(providers);
-		return randomProvider;
+		return getRandomElement(providers);
 	}
 
 	private Provider<T> getRandomElement(List<Provider<T>> elements) {
