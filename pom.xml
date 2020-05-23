@@ -14,6 +14,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sonar.java.source>12</project.build.sourceEncoding>
 		<java.version>12</java.version>
 		<maven.compiler.release>12</maven.compiler.release>
 	</properties>
