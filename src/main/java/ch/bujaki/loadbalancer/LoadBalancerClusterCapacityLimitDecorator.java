@@ -11,6 +11,9 @@ import ch.bujaki.loadbalancer.exception.NoRegisteredProviderIsActiveException;
 import ch.bujaki.loadbalancer.exception.TooManyConcurrentCallsException;
 import ch.bujaki.loadbalancer.provider.Provider;
 
+/**
+ * {@link LoadBalancer} decorator adding functionality to limit concurrent requests.
+ */
 public class LoadBalancerClusterCapacityLimitDecorator <T> implements LoadBalancer<T> {
 	
     private static final Logger logger = LogManager.getLogger(LoadBalancerClusterCapacityLimitDecorator.class);

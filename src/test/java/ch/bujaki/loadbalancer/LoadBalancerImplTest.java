@@ -37,7 +37,7 @@ public class LoadBalancerImplTest {
     }
 
     @Test
-    public void test_basicUseCaseWithRoundRobin_sequenceOfProvidersIsAsExpected2() throws Exception {
+    public void test_excludeProvider_sequenceOfProvidersIsAsExpected() throws Exception {
     	LoadBalancer<Integer> loadBalancer = new LoadBalancerImpl<>(new RoundRobinScheduler<>(), MAX_ACCEPTED_PROVIDER_COUNT);
     	
     	loadBalancer.registerProvider(() -> 1);

@@ -5,13 +5,22 @@ import java.util.concurrent.TimeUnit;
 import ch.bujaki.loadbalancer.scheduler.RoundRobinScheduler;
 import ch.bujaki.loadbalancer.scheduler.SchedulerStrategy;
 
+/**
+ * Factory class for configuring and creating {@link LoadBalancer} instances.
+ */
 public class LoadBalancerFactory {
 	
+	/**
+	 * Private constructor.
+	 */
 	private LoadBalancerFactory() {
 		// Hides the implicit public constructor.
 		// -> Nothing to do.
 	}
 	
+	/**
+	 * {@link LoadBalancer} builder.
+	 */
 	public static class LoadBalancerBuilder<T> {
 		
 		private int healthCheckInterval = 2;

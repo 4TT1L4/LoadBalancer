@@ -5,6 +5,9 @@ import java.util.Random;
 
 import ch.bujaki.loadbalancer.provider.Provider;
 
+/**
+ * A random {@link SchedulerStrategy}, that is retrieving the next results randomly from the passed {@link List}.
+ */
 public class RandomScheduler<T> implements SchedulerStrategy<T> {
 
 	private final Random random;

@@ -11,6 +11,11 @@ import ch.bujaki.loadbalancer.exception.NoRegisteredProviderIsActiveException;
 import ch.bujaki.loadbalancer.provider.Provider;
 import ch.bujaki.loadbalancer.scheduler.SchedulerStrategy;
 
+/**
+ * The core implementation of the {@link LoadBalancer}.
+ * 
+ * Implements the basic scheduling logic and the management of the registered {@link Provider} instances.
+ */
 public class LoadBalancerImpl <T> implements LoadBalancer<T> {
 	
 	private final List<Provider<T>> registeredProviders;
@@ -19,6 +24,9 @@ public class LoadBalancerImpl <T> implements LoadBalancer<T> {
 	
 	private final SchedulerStrategy<T> strategy;
 	
+	/**
+	 * Constructor.
+	 */
 	LoadBalancerImpl(SchedulerStrategy<T> strategy, int maxNumberOfAcceptedProviders) {
 		this.registeredProviders = new CopyOnWriteArrayList<>();
 		this.excludedProviders = new CopyOnWriteArraySet<>();

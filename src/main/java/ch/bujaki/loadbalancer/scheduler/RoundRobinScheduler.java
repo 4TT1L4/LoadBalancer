@@ -4,6 +4,9 @@ import java.util.List;
 
 import ch.bujaki.loadbalancer.provider.Provider;
 
+/**
+ * Round-robin {@link SchedulerStrategy}, implementing sequential scheduling.
+ */
 public class RoundRobinScheduler<T> implements SchedulerStrategy<T> {
 
 	private volatile Provider<T> last;

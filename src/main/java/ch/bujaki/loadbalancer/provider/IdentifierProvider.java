@@ -5,6 +5,9 @@ import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * {@link Provider} implementation supplying random {@link UUID}s.
+ */
 public class IdentifierProvider implements Provider<String> {
 	
     private static final Logger logger = LogManager.getLogger(IdentifierProvider.class);

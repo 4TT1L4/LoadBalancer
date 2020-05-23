@@ -30,6 +30,7 @@ public class IdentifierProviderTest {
     		ids.add(new IdentifierProvider().get());
     	}
     	
+    	// All the identifiers should be unique:
     	assertEquals(100, ids.size());
     }
 }

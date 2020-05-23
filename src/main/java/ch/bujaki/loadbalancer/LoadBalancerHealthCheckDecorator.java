@@ -15,6 +15,11 @@ import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.Disposable;
 
+/**
+ * {@link LoadBalancer} decorator adding functionality for {@link Provider} health checks.
+ * 
+ * See also {@link Provider#check()}
+ */
 public class LoadBalancerHealthCheckDecorator <T> implements LoadBalancer<T> {
 
     private static final Logger logger = LogManager.getLogger(LoadBalancerHealthCheckDecorator.class);
