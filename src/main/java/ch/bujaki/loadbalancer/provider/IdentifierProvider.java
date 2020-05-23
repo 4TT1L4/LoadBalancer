@@ -17,7 +17,7 @@ public class IdentifierProvider implements Provider<String> {
 	
 	@Override
 	public String get() {
-		logger.debug("get - id: {0}", id);
+		logger.debug("get - id: {}", id);
 		return id;
 	}
 
