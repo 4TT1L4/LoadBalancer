@@ -41,7 +41,7 @@ public class LoadBalancerClusterCapacityLimitDecoratorTest {
     public void test_moreCallsThanThemaximumNumberOfConcurrentCallsIsNotAllowed() throws Exception {
     	expectedException.expect(TooManyConcurrentCallsException.class);
     	expectedException.expectMessage(
-    			String.format("There are already 3 concurrent calls and only 3 are allowed.")
+    			String.format("There are already 1 concurrent calls and only 1 are allowed.")
     			);
     	
     	// Create a LoadBalancerImpl with round robin scheduling
@@ -49,12 +49,8 @@ public class LoadBalancerClusterCapacityLimitDecoratorTest {
     	LoadBalancerClusterCapacityLimitDecorator<Integer> decorated = new LoadBalancerClusterCapacityLimitDecorator<>(loadBalancer, 1);
 
     	decorated.registerProvider(new SlowProvider("first"));
-    	decorated.registerProvider(new SlowProvider("second"));
-    	decorated.registerProvider(new SlowProvider("third"));
-
-    	Observable.timer(5, TimeUnit.MILLISECONDS).subscribe(x -> decorated.get());
-    	Observable.timer(5, TimeUnit.MILLISECONDS).subscribe(x -> decorated.get());
-    	Observable.timer(5, TimeUnit.MILLISECONDS).subscribe(x -> decorated.get());    	
+    	
+    	Observable.timer(5, TimeUnit.MILLISECONDS).subscribe(x -> decorated.get());	
     	
     	Thread.sleep(50);
     	
