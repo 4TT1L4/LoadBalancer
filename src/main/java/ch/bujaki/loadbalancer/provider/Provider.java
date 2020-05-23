@@ -9,5 +9,5 @@ public interface Provider<T> {
 	
 	default boolean check() {
 		return true;
-	};
+	}
 }

@@ -30,14 +30,14 @@ public class LoadBalancerHealthCheckDecorator <T> implements LoadBalancer<T> {
 		this.loadBalancer = loadBalancer;
 		this.interval = interval;
 		this.intervalUnit = unit;
-		this.onceHealthy = new CopyOnWriteArraySet<Provider<T>>();
+		this.onceHealthy = new CopyOnWriteArraySet<>();
 	}
 
 	@Override
 	public void start() {
 		logger.debug("start");
 		healthCheck = Observable.interval(interval, intervalUnit)
-			.subscribe( (t) -> checkProviders() );
+			.subscribe( __ -> checkProviders() );
 		
 		loadBalancer.start();
 	}
