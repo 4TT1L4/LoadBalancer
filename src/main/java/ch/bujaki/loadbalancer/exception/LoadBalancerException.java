@@ -1,6 +1,6 @@
 package ch.bujaki.loadbalancer.exception;
 
-abstract public class LoadBalancerException extends Exception {
+public abstract class LoadBalancerException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
