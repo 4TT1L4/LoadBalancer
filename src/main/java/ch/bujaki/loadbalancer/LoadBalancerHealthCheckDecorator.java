@@ -37,7 +37,7 @@ public class LoadBalancerHealthCheckDecorator <T> implements LoadBalancer<T> {
 	public void start() {
 		logger.debug("start");
 		healthCheck = Observable.interval(interval, intervalUnit)
-			.subscribe( __ -> checkProviders() );
+			.subscribe( x -> checkProviders() );
 		
 		loadBalancer.start();
 	}
