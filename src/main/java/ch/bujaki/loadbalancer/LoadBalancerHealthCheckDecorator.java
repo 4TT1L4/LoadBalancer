@@ -81,18 +81,18 @@ public class LoadBalancerHealthCheckDecorator <T> implements LoadBalancer<T> {
 			if (provider.check()) {
 				if (!activeProviders.contains(provider)) {
 					if (onceHealthy.contains(provider)) {
-						logger.info("checkProviders - " + provider + " has recovered.");
+						logger.info("checkProviders - {} has recovered.", provider);
 						loadBalancer.includeProvider(provider);
 						onceHealthy.remove(provider);
 					} 
 					else {
-						logger.info("checkProviders - " + provider + " was once healthy.");
+						logger.info("checkProviders - {} was once healthy.", provider);
 						onceHealthy.add(provider);
 					}
 				}
 			}
 			else {
-				logger.info("checkProviders - " + provider + " is failing.");
+				logger.info("checkProviders - {} is failing.", provider);
 				onceHealthy.remove(provider);
 				loadBalancer.excludeProvider(provider);
 			}
