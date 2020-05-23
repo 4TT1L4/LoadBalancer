@@ -48,12 +48,12 @@ public class LoadBalancerFactory {
 		
 		public LoadBalancer<T> build() {
 			LoadBalancer<T> balancer = new LoadBalancerImpl<>(this.strategy, maxAcceptedProviders);
-			LoadBalancer<T> decoratedWithCapacityLimit = new LoadBalancerClusterCapacityLimitDecorator<T>(balancer, maxNumberOfConcurrentCallsPerActiveProvider);
-			return new LoadBalancerHealthCheckDecorator<T>(decoratedWithCapacityLimit, healthCheckInterval, healthCheckIntervalTimeUnit);
+			LoadBalancer<T> decoratedWithCapacityLimit = new LoadBalancerClusterCapacityLimitDecorator<>(balancer, maxNumberOfConcurrentCallsPerActiveProvider);
+			return new LoadBalancerHealthCheckDecorator<>(decoratedWithCapacityLimit, healthCheckInterval, healthCheckIntervalTimeUnit);
 		}
 	}
 
 	public static <T> LoadBalancerBuilder<T> builder() {
-		return new LoadBalancerBuilder<T>();
+		return new LoadBalancerBuilder<>();
 	}
 }
