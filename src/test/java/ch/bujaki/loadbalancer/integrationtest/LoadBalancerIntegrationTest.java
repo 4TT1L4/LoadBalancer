@@ -71,7 +71,7 @@ public class LoadBalancerIntegrationTest {
 
     @Test(expected = TooManyConcurrentCallsException.class)
     public void test_tooManyConcurrentCalls_exceptionIsBeingThrown() throws Exception {
-    	LoadBalancer<Integer> loadBalancer = LoadBalancerFactory.<Integer>builder()
+    	LoadBalancer<String> loadBalancer = LoadBalancerFactory.<String>builder()
     		.healthCheckInterval(1000)
     		.healthCheckIntervalTimeUnit(TimeUnit.MICROSECONDS)
     		.maxAcceptedProviders(3)
@@ -90,7 +90,7 @@ public class LoadBalancerIntegrationTest {
 
     @Test
     public void test_twoConcurrentCalls_noExceptionIsThrownIfThisIsAllowed() throws Exception {
-    	LoadBalancer<Integer> loadBalancer = LoadBalancerFactory.<Integer>builder()
+    	LoadBalancer<String> loadBalancer = LoadBalancerFactory.<String>builder()
     		.healthCheckInterval(1000)
     		.healthCheckIntervalTimeUnit(TimeUnit.MICROSECONDS)
     		.maxAcceptedProviders(3)

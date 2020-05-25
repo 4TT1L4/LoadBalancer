@@ -22,8 +22,8 @@ public class LoadBalancerClusterCapacityLimitDecoratorTest {
     @Test
     public void test_maximumNumberOfConcurrentCallsIsStillAllowed() throws Exception {
     	// Create a LoadBalancerImpl with round robin scheduling
-    	LoadBalancer<Integer> loadBalancer = new LoadBalancerImpl<>(new RoundRobinScheduler<>(), 3);
-    	LoadBalancerClusterCapacityLimitDecorator<Integer> decorated = new LoadBalancerClusterCapacityLimitDecorator<>(loadBalancer, 1);
+    	LoadBalancer<String> loadBalancer = new LoadBalancerImpl<>(new RoundRobinScheduler<>(), 3);
+    	LoadBalancerClusterCapacityLimitDecorator<String> decorated = new LoadBalancerClusterCapacityLimitDecorator<>(loadBalancer, 1);
 
     	decorated.registerProvider(new SlowProvider("first"));
     	decorated.registerProvider(new SlowProvider("second"));
@@ -45,8 +45,8 @@ public class LoadBalancerClusterCapacityLimitDecoratorTest {
     			);
     	
     	// Create a LoadBalancerImpl with round robin scheduling
-    	LoadBalancer<Integer> loadBalancer = new LoadBalancerImpl<>(new RoundRobinScheduler<>(), 3);
-    	LoadBalancerClusterCapacityLimitDecorator<Integer> decorated = new LoadBalancerClusterCapacityLimitDecorator<>(loadBalancer, 1);
+    	LoadBalancer<String> loadBalancer = new LoadBalancerImpl<>(new RoundRobinScheduler<>(), 3);
+    	LoadBalancerClusterCapacityLimitDecorator<String> decorated = new LoadBalancerClusterCapacityLimitDecorator<>(loadBalancer, 1);
 
     	decorated.registerProvider(new SlowProvider("first"));
     	
