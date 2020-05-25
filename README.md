@@ -5,6 +5,9 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=BujakiAttila_LoadBalancer&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=BujakiAttila_LoadBalancer)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=BujakiAttila_LoadBalancer&metric=coverage)](https://sonarcloud.io/dashboard?id=BujakiAttila_LoadBalancer)
 
+![Load Balancer](https://github.com/BujakiAttila/LoadBalancer/blob/master/doc/loadbalancer.gif?raw=true)
+
+
 A simple load balancer implementation in Java with support for limitation of concurrent requests, health checks and a nice fluent syntax providing a way for dynamically configuring the LoadBalancer instances:
 
 ```java
