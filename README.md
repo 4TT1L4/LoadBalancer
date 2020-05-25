@@ -20,13 +20,18 @@ loadBalancer.registerProvider(first);
 loadBalancer.registerProvider(second);
 loadBalancer.registerProvider(third);
 
-String response = loadBalancer.get();
+String response1 = loadBalancer.get();  // Response from first
+String response2 = loadBalancer.get();  // Response from second
+String response3 = loadBalancer.get();  // Response from third
+String response4 = loadBalancer.get();  // Response from first
+String response5 = loadBalancer.get();  // Response from second
+                                        // ...
 ```
 
 ## Health Checks
 The health check functionality makes it possible to make sure that the Provider nodes, that are not in a healthy state, are not used anymore. As soon as the Providers are back running and healthy again, they are automatically added back to the list of used nodes.
 
-## Limitation of concurrent requests
+## Limit concurrent requests
 It is also possible to configure the load balancer to be limiting the concurrent requests. This way we can be sure that the Provider nodes will not be overflooded by requests.
 
 ## Support for different scheduling strategies
