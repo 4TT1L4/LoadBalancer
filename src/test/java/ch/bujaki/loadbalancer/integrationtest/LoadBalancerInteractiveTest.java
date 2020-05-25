@@ -51,18 +51,27 @@ public class LoadBalancerInteractiveTest {
 		char c = ' ';
 		try (Scanner in = new Scanner(System.in)) {
 			while (c != 'q') {
-				c = in.next().charAt(0);
+				c = Character.toLowerCase(in.next().charAt(0));
 
 				if (Character.isDigit(c)) {
 					toggleHealth(c);
 				}
 				else {
 					switch (c) {
+					case '?':
+						// fall-through:
+					case 'h':
+						printHelp();
+						break;
 					case 'g':
 						getNextResult();
 						break;
 					case 'r':
 						registerNewProvider();
+						break;
+					default:
+						System.out.println("Unknown command '" + c + "'! Please use one of the following single letter commands:\n");
+						printHelp();
 						break;
 					}
 				}
@@ -121,10 +130,12 @@ public class LoadBalancerInteractiveTest {
 		System.out.println(" ---< INTERACTIVE LOAD BALANCER TESTER >--- ");
 		System.out.println("                                            ");
 		System.out.println(" Controls:                                  ");
-		System.out.println("  r:   Registers a new provider             ");
-		System.out.println("  g:   Sends a request to the load balancer ");
-		System.out.println("  0-9: Toggles the health of the provider   ");
-		System.out.println("  q:   Terminates the execution             ");
+		System.out.println("  r:   Registers a new provider.            ");
+		System.out.println("  g:   Sends a request to the load balancer.");
+		System.out.println("  0-9: Toggles the health of the provider.  ");
+		System.out.println("  q:   Terminates the execution.            ");
+		System.out.println("  h:   Prints this help text.               ");
+		System.out.println("  ?:   Prints this help text.               ");
 		System.out.println("                                            ");
 		System.out.println(" Enter only a single character per line!    ");
 		System.out.println("                                            ");
